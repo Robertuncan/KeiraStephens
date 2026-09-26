@@ -1,0 +1,6 @@
+{
+  "name": "Morrow & Finch Cabinetmakers | Bespoke Kitchens & Architectural Joinery",
+  "description": "Handcrafted bespoke kitchens, architectural libraries, and fine cabinetry in Bath & Somerset. Made to endure in our Walcot workshop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

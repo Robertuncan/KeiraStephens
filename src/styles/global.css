@@ -1,0 +1,173 @@
+/* Design Tokens & Base Styles */
+:root {
+  /* Typography */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Color Palette - Restrained & Consistent */
+  --color-primary: #243329;
+  --color-primary-hover: #1A261E;
+  --color-secondary: #9B7E58;
+  --color-accent: #C47B46;
+  --color-ink: #1C201D;
+  --color-ink-muted: #56615A;
+  --color-ink-subtle: #7A857F;
+  --color-bg-canvas: #FAF9F5;
+  --color-bg-surface: #F3EFEA;
+  --color-bg-card: #FFFFFF;
+  --color-border: rgba(36, 51, 41, 0.1);
+  --color-border-subtle: rgba(36, 51, 41, 0.06);
+
+  /* Spacing Scale: 4, 8, 16, 24, 32, 48, 64, 96, 128px */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --content-padding: 24px;
+  --nav-height: 76px;
+
+  /* Depth & Finish */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --shadow-resting: 0 4px 20px -4px rgba(28, 32, 29, 0.06);
+  --shadow-hover: 0 12px 32px -6px rgba(28, 32, 29, 0.12);
+  --shadow-modal: 0 24px 48px -12px rgba(28, 32, 29, 0.22);
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.65;
+  background-color: var(--color-bg-canvas);
+  color: var(--color-ink);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Headings scale */
+h1, .font-heading {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Section label / Eyebrow */
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Paragraph max width */
+p {
+  max-width: 65ch;
+}
+
+/* Container */
+.container-custom {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+}
+
+/* Section spacing */
+.section-padding {
+  padding-top: var(--space-96);
+  padding-bottom: var(--space-96);
+}
+
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+  }
+}
+
+/* Section anchor offset for sticky navbar */
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+}
+
+/* Interactive element transitions */
+button, a {
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Image zoom utility */
+.zoom-on-hover {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.zoom-on-hover img {
+  transition: transform var(--transition-base);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-on-hover:hover img {
+  transform: scale(1.04);
+}
